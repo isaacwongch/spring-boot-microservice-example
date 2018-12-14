@@ -1,12 +1,29 @@
 package iw.services.ordering.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Order {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Order")
+public class Order implements Serializable{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@OneToMany
 	private List<Product> products = new ArrayList<>();
+	
 	private Date orderDate;
 	
 	public Order(){
@@ -32,5 +49,9 @@ public class Order {
 		this.orderDate = orderDate;
 	}
 	
+	@PrePersist
+	void orderDate(){
+		orderDate = new Date();
+	}
 	
 }
