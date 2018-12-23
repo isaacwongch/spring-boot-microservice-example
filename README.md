@@ -1,5 +1,7 @@
 # Spring Boot Microservice Example
 
+![microservice.architecture](./spring_microservice1.png)
+
 Our example will include the following components:
 * sales-order-service
 * delivery-service
@@ -10,6 +12,3 @@ Build the docker image:
 ```
  ./mvnw clean install
 ```
-
-Schedule:
-Week #1 (22 OCT 2018 - 28 OCT 2018)  - Focus on the ordering service and a simple application using Spring Boot
